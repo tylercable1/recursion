@@ -9,7 +9,7 @@ var getElementsByClassName = function(className, node) {
   var results = [];
   node = node || document.body;
 
-  if (node.classList.contains(className)) {
+  if (node.classList && node.classList.contains(className)) {
   	results.push(node);
   }
 
@@ -18,7 +18,7 @@ var getElementsByClassName = function(className, node) {
   if (children) {
   	for (var i = 0; i < children.length; i++) {
   		var child = children[i];
-  		results = results.concat(getElementsByClassName(className, child);
+  		results = results.concat(getElementsByClassName(className, child));
   	}
   }
   return results
